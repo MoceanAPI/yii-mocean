@@ -1,0 +1,24 @@
+{
+  "name": "mocean/yii-mocean",
+  "description": "Mocean API for Yii Framework",
+  "type": "library",
+  "keywords": [
+    "sms",
+    "verify",
+    "yii",
+    "yiiframework",
+    "mocean"
+  ],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "yiisoft/yii2": "^2.0.0",
+    "mocean/client": "1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "yiimocean\\": "src"
+    }
+  }
+}
