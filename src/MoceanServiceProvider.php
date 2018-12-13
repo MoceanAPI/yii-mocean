@@ -16,6 +16,12 @@ class MoceanServiceProvider extends Component
     public $defaults;
     public $accounts;
 
+    /**
+     * abilitity to switch account defined in config
+     *
+     * @param $account
+     * @return YiiMocean
+     */
     public function using($account)
     {
         if (!isset($this->accounts[$account])) {
@@ -25,11 +31,21 @@ class MoceanServiceProvider extends Component
         return new YiiMocean($settings['apiKey'], $settings['apiSecret'], $settings['from']);
     }
 
+    /**
+     * Magically call function defined in YiiMocean Class
+     * @param $method
+     * @param $arguments
+     * @return mixed
+     */
     public function __call($method, $arguments)
     {
         return call_user_func_array([$this->defaultConnection(), $method], $arguments);
     }
 
+    /**
+     * this will be called to use default connections
+     * @return YiiMocean
+     */
     protected function defaultConnection()
     {
         return $this->using($this->defaults);

@@ -16,7 +16,7 @@ class YiiMocean
 {
     private $from;
 
-    /** @var Client $to */
+    /** @var \Mocean\Client $moceanClient */
     protected $moceanClient;
 
     /**
@@ -53,6 +53,7 @@ class YiiMocean
     }
 
     /**
+     * Get the configured mocean sdk
      * @return \Mocean\Client
      */
     public function getMocean()
