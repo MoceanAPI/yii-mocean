@@ -6,10 +6,11 @@
  * Time: 3:21 PM
  */
 
-namespace yiimocean;
+namespace YiiMocean;
 
+use InvalidArgumentException;
+use Mocean\Client\Credentials\Basic;
 use yii\base\Component;
-use yii\base\InvalidConfigException;
 
 class MoceanServiceProvider extends Component
 {
@@ -24,11 +25,30 @@ class MoceanServiceProvider extends Component
      */
     public function using($account)
     {
-        if (!isset($this->accounts[$account])) {
-            throw new InvalidConfigException("Account \"$account\" is not configured.");
+        if (is_array($account)) {
+            $settings = $account;
+        } elseif ($account instanceof Basic) {
+            $settings = [
+                'api_key' => $account['mocean-api-key'],
+                'api_secret' => $account['mocean-api-secret'],
+            ];
+        } else {
+            if (!isset($this->accounts[$account])) {
+                throw new InvalidArgumentException("Account \"$account\" is not configured.");
+            }
+
+            $settings = $this->accounts[$account];
         }
-        $settings = $this->accounts[$account];
-        return new YiiMocean($settings['apiKey'], $settings['apiSecret'], $settings['from']);
+
+        if (!isset($settings['api_key']) || $settings['api_key'] === '') {
+            throw new InvalidArgumentException('api_key is not configured');
+        }
+
+        if (!isset($settings['api_secret']) || $settings['api_secret'] === '') {
+            throw new InvalidArgumentException('api_secret is not configured');
+        }
+
+        return new YiiMocean($settings['api_key'], $settings['api_secret']);
     }
 
     /**

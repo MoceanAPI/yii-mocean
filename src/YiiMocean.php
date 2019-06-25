@@ -6,50 +6,26 @@
  * Time: 11:24 AM
  */
 
-namespace yiimocean;
+namespace YiiMocean;
 
 use Mocean\Client;
 use Mocean\Client\Credentials\Basic;
-use yii\base\Component;
 
+/**
+ * @mixin Client
+ */
 class YiiMocean
 {
-    private $from;
-
     /** @var \Mocean\Client $moceanClient */
     protected $moceanClient;
 
     /**
      * YiiMocean constructor.
      */
-    public function __construct($apiKey, $apiSecret, $from)
+    public function __construct($apiKey, $apiSecret)
     {
-        $this->from = $from;
         $credentials = new Basic($apiKey, $apiSecret);
         $this->moceanClient = new Client($credentials);
-    }
-
-    /**
-     * @param $to
-     * @param $text
-     * @param array $params
-     *
-     * @link http://moceanapi.com/docs/#send-sms Documentation
-     *
-     * @return string
-     * @throws Client\Exception\Exception
-     */
-    public function message($to, $text, array $params = [])
-    {
-        $params['mocean-to'] = $to;
-        $params['mocean-text'] = $text;
-        $params['mocean-resp-format'] = 'json';
-
-        if (!isset($params['mocean-from'])) {
-            $params['mocean-from'] = $this->from;
-        }
-
-        return $this->moceanClient->message()->send($params);
     }
 
     /**
@@ -59,5 +35,10 @@ class YiiMocean
     public function getMocean()
     {
         return $this->moceanClient;
+    }
+
+    public function __call($method, $arguments)
+    {
+        return call_user_func_array([$this->getMocean(), $method], $arguments);
     }
 }

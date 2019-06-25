@@ -2,6 +2,12 @@
   "name": "mocean/yii-mocean",
   "description": "Mocean API for Yii Framework",
   "type": "library",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
   "keywords": [
     "sms",
     "verify",
@@ -13,12 +19,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "yiisoft/yii2": "^2.0.0",
-    "mocean/client": "1.*"
+    "mocean/client": "^2.0",
+    "yiisoft/yii2": "^2.0"
   },
   "autoload": {
     "psr-4": {
-      "yiimocean\\": "src"
+      "YiiMocean\\": "src/"
     }
   }
 }
