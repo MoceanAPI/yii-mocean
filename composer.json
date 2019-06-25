@@ -22,9 +22,17 @@
     "mocean/client": "^2.0",
     "yiisoft/yii2": "^2.0"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~4.5"
+  },
   "autoload": {
     "psr-4": {
       "YiiMocean\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "YiiMocean\\Tests\\": "tests/"
     }
   }
 }
