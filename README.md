@@ -2,6 +2,7 @@ Yii Mocean
 ===============
 [![Latest Stable Version](https://img.shields.io/packagist/v/mocean/yii-mocean.svg)](https://packagist.org/packages/mocean/yii-mocean)
 [![Build Status](https://img.shields.io/travis/com/MoceanAPI/yii-mocean.svg)](https://travis-ci.com/MoceanAPI/yii-mocean)
+[![StyleCI](https://github.styleci.io/repos/161600641/shield?branch=master)](https://github.styleci.io/repos/161600641)
 [![License](https://img.shields.io/packagist/l/mocean/yii-mocean.svg)](https://packagist.org/packages/mocean/yii-mocean)
 [![Total Downloads](https://img.shields.io/packagist/dt/mocean/yii-mocean.svg)](https://packagist.org/packages/mocean/yii-mocean)
 

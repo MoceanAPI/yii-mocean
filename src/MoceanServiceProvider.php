@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Neoson Lam
  * Date: 12/13/2018
- * Time: 3:21 PM
+ * Time: 3:21 PM.
  */
 
 namespace YiiMocean;
@@ -18,9 +18,10 @@ class MoceanServiceProvider extends Component
     public $accounts;
 
     /**
-     * abilitity to switch account defined in config
+     * abilitity to switch account defined in config.
      *
      * @param $account
+     *
      * @return YiiMocean
      */
     public function using($account)
@@ -29,7 +30,7 @@ class MoceanServiceProvider extends Component
             $settings = $account;
         } elseif ($account instanceof Basic) {
             $settings = [
-                'api_key' => $account['mocean-api-key'],
+                'api_key'    => $account['mocean-api-key'],
                 'api_secret' => $account['mocean-api-secret'],
             ];
         } else {
@@ -52,9 +53,11 @@ class MoceanServiceProvider extends Component
     }
 
     /**
-     * Magically call function defined in YiiMocean Class
+     * Magically call function defined in YiiMocean Class.
+     *
      * @param $method
      * @param $arguments
+     *
      * @return mixed
      */
     public function __call($method, $arguments)
@@ -63,7 +66,8 @@ class MoceanServiceProvider extends Component
     }
 
     /**
-     * this will be called to use default connections
+     * this will be called to use default connections.
+     *
      * @return YiiMocean
      */
     protected function defaultConnection()

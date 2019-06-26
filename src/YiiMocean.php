@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Neoson Lam
  * Date: 12/13/2018
- * Time: 11:24 AM
+ * Time: 11:24 AM.
  */
 
 namespace YiiMocean;
@@ -29,7 +29,8 @@ class YiiMocean
     }
 
     /**
-     * Get the configured mocean sdk
+     * Get the configured mocean sdk.
+     *
      * @return \Mocean\Client
      */
     public function getMocean()

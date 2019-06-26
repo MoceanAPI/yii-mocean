@@ -8,7 +8,6 @@
 
 namespace YiiMocean\Tests;
 
-
 use YiiMocean\MoceanServiceProvider;
 
 class ApplicationComponentTest extends AbstractTesting

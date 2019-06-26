@@ -46,7 +46,7 @@ class ApiTest extends AbstractTesting
     {
         $mocean = $this->app->mocean;
         $crendentials = [
-            'api_key' => 'test_array_key',
+            'api_key'    => 'test_array_key',
             'api_secret' => 'test_array_secret',
         ];
 
